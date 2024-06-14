@@ -13,11 +13,10 @@
 <div class="body">
     <div id="errpage" class="page_msg">
             </div>
-				<h1>点击以下按钮唤起收银台支付</h1>
-<a href="javascript:void(0)" class="btn orderstrPay">订单串唤起支付</a>
+				<h1>自动唤起收银台支付</h1>
+<!--<a href="javascript:void(0)" class="btn orderstrPay">订单串唤起支付</a>-->
 </div>
 <script type="text/javascript">
-  console.log('AlipayJSBridge hello world');
 
 function ready(callback) {
   // 如果jsbridge已经注入则直接调用
@@ -29,13 +28,11 @@ function ready(callback) {
   }
 }
 ready(function(){
-  document.querySelector('.orderstrPay').addEventListener('click', function() {
     AlipayJSBridge.call("tradePay", {
       orderStr: "app_id=2017080107983960&method=alipay.trade.app.pay&format=JSON&return_url=https%3A%2F%2Fopen-kyycps.lunjian.com%2F&charset=UTF-8&sign_type=RSA2&timestamp=2024-06-11+16%3A20%3A57&version=1.0&notify_url=https%3A%2F%2Ftxpay.49xiaoshuo.com%2Fks%2Fpayv1%2FaliPayAsync&biz_content=%7B%22total_amount%22%3A%2266.00%22%2C%22subject%22%3A%22%E4%B9%A6%E5%B8%81%E5%85%85%E5%80%BC%22%2C%22out_trade_no%22%3A%2220000294202406111620576970558%22%2C%22product_code%22%3A%22QUICK_MSECURITY_PAY%22%7D&sign=LgKHtF4AUeYTPj3okIkrsGwXJu7qJiKVmWspSbHPdmHrXPqXDYjFK548HIg%2FP9aL4B8F3bJLOYDcovYEAV81%2FTxIkoEj%2BKocmX9hRRxp9%2F0GqVrh5OPPhHM06g1PLPPKTAybTo2MLtABQUu05KpzI5yLm%2BOshI%2BZdB9pUcLZyB6XRVkUr9FV%2FKxzUlAlm%2BoK6L0eTnBUPK6HgyPzaD50FYPLB03HkUL22F3Bt21qLhsKPzzFXPUpFCunFFbKl5ua6CHAeU9TBRZefVwMTJ58TyzMgERDadj8PqCDK6e5FiA2OQGfwqxKo3WAOEUyNt%2F2p04dd5zthCb4720Qgj2Lmw%3D%3D"
     }, function(result) {
       alert(JSON.stringify(result));
     });
-  });
 });
 </script>
 </body>
